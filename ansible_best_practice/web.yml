@@ -1,0 +1,12 @@
+---
+- hosts: web-server 
+  sudo: yes
+  pre_tasks:
+    - name: "update system"
+      apt:  name=* update-cache=yes state=latest force_apt_get=True
+      become: yes
+
+  roles:
+    - {role: apache2, become: yes}
+
+...

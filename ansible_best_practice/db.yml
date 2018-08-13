@@ -1,0 +1,20 @@
+---
+- hosts: db-server 
+  sudo: yes
+  vars: 
+    - mysql_root_pass: abc123
+  pre_tasks:
+    - name: "update system"
+      apt:  name=* update-cache=yes state=latest force_apt_get=True
+      become: yes
+
+    - name: "install pip"
+      apt: name=python-pip update_cache=yes state=latest
+
+    - name: "install python module MySQL-python"
+      pip: name=MySQL-python
+
+  roles:
+    - {role: mysql, become: yes}
+
+...
