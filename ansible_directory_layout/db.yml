@@ -1,0 +1,16 @@
+---
+- hosts: db-server 
+  sudo: yes
+  pre_tasks:
+    - name: "update system"
+      apt:  name=* update-cache=yes state=latest force_apt_get=True
+      become: yes
+
+    - name: "install pip"
+      apt: name=python3-pip update_cache=yes state=latest
+
+  roles:
+    - {role: python-db-modules, become: yes}
+    - {role: mysql, become: yes}
+
+...

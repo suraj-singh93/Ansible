@@ -1,0 +1,38 @@
+---
+# tasks file for mysql
+- name: Install the MySQL packages
+  apt: name={{ item }} state=present update_cache=yes force_apt_get=yes install_recommends=yes dpkg_options='force-confnew'
+  with_items:
+    - mysql-server
+    - mysql-client
+    - libmysqlclient-dev
+    - libevent-core-2.0-5
+   
+- name: Update MySQL root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mysql_root_pass }} state=present
+  with_items:
+    - '%'
+    - 127.0.0.1
+    - ::1
+    - localhost
+
+- name: Copy the root credentials as .my.cnf file
+  template: src=root.cnf.j2 dest=~/.my.cnf mode=0600
+
+- name: Ensure Anonymous user(s) are not in the database
+  mysql_user: name='' host={{ item }} state=absent
+  with_items:
+    - localhost
+    - '%'
+
+- name: Resolve Unused Dependency
+  command: apt-get -o DPkg::Options::=--force-confnew -q -f -y upgrade
+  ignore_errors: yes
+  become: yes      
+
+- name: Remove the test database
+  mysql_db: name=test state=absent
+  notify:
+    - Restart MySQL
+...
+# tasks file for testrole
