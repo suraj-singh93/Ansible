@@ -1,0 +1,455 @@
+2018-08-14 20:47:12,644 p=28525 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-14 20:47:13,806 p=28525 u=root |  PLAY [db-server] *********************************************************************************************
+2018-08-14 20:47:13,896 p=28525 u=root |  TASK [Gathering Facts] ***************************************************************************************
+2018-08-14 20:47:23,005 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:47:23,036 p=28525 u=root |  TASK [update system] *****************************************************************************************
+2018-08-14 20:47:31,745 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:47:31,780 p=28525 u=root |  TASK [install pip] *******************************************************************************************
+2018-08-14 20:47:37,629 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:47:37,668 p=28525 u=root |  TASK [python-db-modules : Update repositories cache and install "libmysqlclient-dev" package] ****************
+2018-08-14 20:47:46,624 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:47:46,660 p=28525 u=root |  TASK [python-db-modules : copy requirment to remote server] **************************************************
+2018-08-14 20:47:57,288 p=28525 u=root |  changed: [13.232.213.209]
+2018-08-14 20:47:57,324 p=28525 u=root |  TASK [python-db-modules : python-modules] ********************************************************************
+2018-08-14 20:48:07,052 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:48:07,087 p=28525 u=root |  TASK [mysql : Install the MySQL packages] ********************************************************************
+2018-08-14 20:48:13,435 p=28525 u=root |  ok: [13.232.213.209] => (item=[u'mysql-server', u'mysql-client', u'libmysqlclient-dev', u'libevent-core-2.0-5'])
+2018-08-14 20:48:13,473 p=28525 u=root |  TASK [mysql : Update MySQL root password for all root accounts] **********************************************
+2018-08-14 20:48:17,567 p=28525 u=root |  ok: [13.232.213.209] => (item=%)
+2018-08-14 20:48:21,212 p=28525 u=root |  ok: [13.232.213.209] => (item=127.0.0.1)
+2018-08-14 20:48:25,057 p=28525 u=root |  ok: [13.232.213.209] => (item=::1)
+2018-08-14 20:48:32,466 p=28525 u=root |  ok: [13.232.213.209] => (item=localhost)
+2018-08-14 20:48:32,501 p=28525 u=root |  TASK [mysql : Copy the root credentials as .my.cnf file] *****************************************************
+2018-08-14 20:48:44,861 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:48:44,894 p=28525 u=root |  TASK [mysql : Ensure Anonymous user(s) are not in the database] **********************************************
+2018-08-14 20:48:50,146 p=28525 u=root |  ok: [13.232.213.209] => (item=localhost)
+2018-08-14 20:48:55,753 p=28525 u=root |  ok: [13.232.213.209] => (item=%)
+2018-08-14 20:48:55,788 p=28525 u=root |  TASK [mysql : Resolve Unused Dependency] *********************************************************************
+2018-08-14 20:49:01,477 p=28525 u=root |   [WARNING]: Consider using the apt module rather than running apt-get.  If you need to use command because
+apt is insufficient you can add warn=False to this command task or set command_warnings=False in ansible.cfg
+to get rid of this message.
+
+2018-08-14 20:49:01,478 p=28525 u=root |  changed: [13.232.213.209]
+2018-08-14 20:49:01,514 p=28525 u=root |  TASK [mysql : Remove the test database] **********************************************************************
+2018-08-14 20:49:08,225 p=28525 u=root |  ok: [13.232.213.209]
+2018-08-14 20:49:08,231 p=28525 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-14 20:49:08,232 p=28525 u=root |  13.232.213.209             : ok=12   changed=2    unreachable=0    failed=0   
+2018-08-15 03:20:40,375 p=32579 u=root |  ERROR! the playbook: tag_type_WEB could not be found
+2018-08-15 03:21:12,198 p=32586 u=root |   [WARNING]:  * Failed to parse /home/ansible_scripts/ansible-aws-inventory/ec2.py with ini plugin:
+/home/ansible_scripts/ansible-aws-inventory/ec2.py:3: Error parsing host definition ''''': No closing
+quotation
+
+2018-08-15 03:21:12,199 p=32586 u=root |   [WARNING]: Unable to parse /home/ansible_scripts/ansible-aws-inventory/ec2.py as an inventory source
+
+2018-08-15 03:21:12,199 p=32586 u=root |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2018-08-15 03:21:12,206 p=32586 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2018-08-15 03:21:13,295 p=32586 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: tag_type_WEB
+
+2018-08-15 03:21:13,296 p=32586 u=root |  PLAY [tag_type_WEB] ******************************************************************************************
+2018-08-15 03:21:13,297 p=32586 u=root |  skipping: no hosts matched
+2018-08-15 03:21:13,297 p=32586 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 03:23:16,386 p=32707 u=root |   [WARNING]:  * Failed to parse /home/ansible_scripts/ansible-aws-inventory/ec2.py with ini plugin:
+/home/ansible_scripts/ansible-aws-inventory/ec2.py:3: Error parsing host definition ''''': No closing
+quotation
+
+2018-08-15 03:23:16,388 p=32707 u=root |   [WARNING]: Unable to parse /home/ansible_scripts/ansible-aws-inventory/ec2.py as an inventory source
+
+2018-08-15 03:23:16,392 p=32707 u=root |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2018-08-15 03:23:16,397 p=32707 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2018-08-15 03:23:16,642 p=32707 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: tag_type_WEB
+
+2018-08-15 03:23:16,643 p=32707 u=root |  PLAY [tag_type_WEB] ******************************************************************************************
+2018-08-15 03:23:16,644 p=32707 u=root |  skipping: no hosts matched
+2018-08-15 03:23:16,646 p=32707 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 03:25:36,363 p=32722 u=root |   [WARNING]:  * Failed to parse /home/ansible_scripts/ansible-aws-inventory/ec2.py with ini plugin:
+/home/ansible_scripts/ansible-aws-inventory/ec2.py:3: Error parsing host definition ''''': No closing
+quotation
+
+2018-08-15 03:25:36,364 p=32722 u=root |   [WARNING]: Unable to parse /home/ansible_scripts/ansible-aws-inventory/ec2.py as an inventory source
+
+2018-08-15 03:25:36,366 p=32722 u=root |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2018-08-15 03:25:36,370 p=32722 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2018-08-15 03:26:52,879 p=32742 u=root |  13.232.213.209 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey).\r\n", 
+    "unreachable": true
+}
+2018-08-15 03:26:52,889 p=32742 u=root |  13.232.148.160 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey).\r\n", 
+    "unreachable": true
+}
+2018-08-15 03:26:52,976 p=32742 u=root |  13.232.230.131 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey).\r\n", 
+    "unreachable": true
+}
+2018-08-15 03:26:54,528 p=32742 u=root |  13.232.150.18 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey).\r\n", 
+    "unreachable": true
+}
+2018-08-15 03:32:53,965 p=705 u=root |   [WARNING]: sftp transfer mechanism failed on [13.232.213.209]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:32:53,991 p=705 u=root |   [WARNING]: sftp transfer mechanism failed on [13.232.148.160]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:32:54,011 p=705 u=root |   [WARNING]: sftp transfer mechanism failed on [13.232.150.18]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:32:54,010 p=705 u=root |   [WARNING]: sftp transfer mechanism failed on [13.232.230.131]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:32:55,208 p=705 u=root |   [WARNING]: scp transfer mechanism failed on [13.232.213.209]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:32:55,218 p=705 u=root |   [WARNING]: scp transfer mechanism failed on [13.232.148.160]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:32:55,246 p=705 u=root |   [WARNING]: scp transfer mechanism failed on [13.232.150.18]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2018-08-15 03:32:55,248 p=705 u=root |   [WARNING]: scp transfer mechanism failed on [13.232.230.131]. Use ANSIBLE_DEBUG=1 to see detailed
+information
+
+2018-08-15 03:33:26,974 p=705 u=root |  13.232.150.18 | FAILED! => {
+    "changed": false, 
+    "module_stderr": "Shared connection to 13.232.150.18 closed.\r\n", 
+    "module_stdout": "Please login as the user \"ubuntu\" rather than the user \"root\".\r\n\r\n", 
+    "msg": "MODULE FAILURE", 
+    "rc": 0
+}
+2018-08-15 03:33:26,983 p=705 u=root |  13.232.230.131 | FAILED! => {
+    "changed": false, 
+    "module_stderr": "Shared connection to 13.232.230.131 closed.\r\n", 
+    "module_stdout": "Please login as the user \"ubuntu\" rather than the user \"root\".\r\n\r\n", 
+    "msg": "MODULE FAILURE", 
+    "rc": 0
+}
+2018-08-15 03:33:26,985 p=705 u=root |  13.232.148.160 | FAILED! => {
+    "changed": false, 
+    "module_stderr": "Shared connection to 13.232.148.160 closed.\r\n", 
+    "module_stdout": "Please login as the user \"ubuntu\" rather than the user \"root\".\r\n\r\n", 
+    "msg": "MODULE FAILURE", 
+    "rc": 0
+}
+2018-08-15 03:33:26,989 p=705 u=root |  13.232.213.209 | FAILED! => {
+    "changed": false, 
+    "module_stderr": "Shared connection to 13.232.213.209 closed.\r\n", 
+    "module_stdout": "Please login as the user \"ubuntu\" rather than the user \"root\".\r\n\r\n", 
+    "msg": "MODULE FAILURE", 
+    "rc": 0
+}
+2018-08-15 03:36:25,153 p=907 u=root |  13.232.148.160 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 03:39:51,447 p=992 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2018-08-15 03:39:51,450 p=992 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: help
+
+2018-08-15 03:39:51,460 p=992 u=root |  ERROR! No argument passed to command module
+2018-08-15 03:47:34,118 p=1042 u=root |  13.232.213.209 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:33:59,073 p=2931 u=root |  13.232.148.160 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:34:01,865 p=2931 u=root |  35.177.124.187 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:34:03,618 p=2931 u=root |  18.212.29.247 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.212.29.247 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:34:03,625 p=2931 u=root |  18.208.167.34 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.208.167.34 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:34:03,675 p=2931 u=root |  18.231.171.168 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.231.171.168 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:34:09,141 p=2931 u=root |  18.130.212.4 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.130.212.4 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:34:11,937 p=2931 u=root |  18.228.15.99 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.228.15.99 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:34:13,696 p=2931 u=root |  13.232.213.209 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 13.232.213.209 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:35:07,095 p=3002 u=root |  13.232.148.160 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:35:13,294 p=3002 u=root |  13.232.213.209 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 13.232.213.209 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:36:11,290 p=3035 u=root |  35.177.124.187 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:36:12,615 p=3035 u=root |  18.130.212.4 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.130.212.4 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:36:42,064 p=3062 u=root |  18.228.15.99 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.228.15.99 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:36:42,071 p=3062 u=root |  18.231.171.168 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.231.171.168 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:37:11,621 p=3084 u=root |  18.212.29.247 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.212.29.247 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:37:11,633 p=3084 u=root |  18.208.167.34 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.208.167.34 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:38:42,475 p=3107 u=root |  18.228.15.99 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.228.15.99 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:38:42,487 p=3107 u=root |  18.231.171.168 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.231.171.168 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:40:07,975 p=3131 u=root |   [ERROR]: User interrupted execution
+
+2018-08-15 14:40:28,362 p=3157 u=root |  18.212.29.247 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:40:28,369 p=3157 u=root |  18.208.167.34 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:42:01,339 p=3193 u=root |  18.231.171.168 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:42:01,345 p=3193 u=root |  18.228.15.99 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:42:44,043 p=3233 u=root |  35.177.124.187 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:42:45,843 p=3233 u=root |  18.130.212.4 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 18.130.212.4 port 22: Connection timed out\r\n", 
+    "unreachable": true
+}
+2018-08-15 14:44:31,566 p=3268 u=root |  18.130.212.4 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:44:31,629 p=3268 u=root |  35.177.124.187 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:44:59,920 p=3308 u=root |  13.232.213.209 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:45:00,892 p=3308 u=root |  13.232.148.160 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:47:15,061 p=3394 u=root |  13.232.213.209 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:47:20,392 p=3394 u=root |  18.130.212.4 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:47:23,960 p=3394 u=root |  18.208.167.34 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:47:26,518 p=3394 u=root |  18.228.15.99 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2018-08-15 14:48:03,744 p=3466 u=root |   [WARNING]: Unable to parse /home/ansible_scripts/ansible-aws-inventory/eu-west-2 as an inventory source
+
+2018-08-15 14:48:03,746 p=3466 u=root |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2018-08-15 14:48:03,750 p=3466 u=root |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does
+not match 'all'
+
+2018-08-15 14:48:03,763 p=3466 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-15 14:48:04,060 p=3466 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: tag_Type_MySQL
+
+2018-08-15 14:48:04,062 p=3466 u=root |  PLAY [tag_Type_MySQL] ****************************************************************************************
+2018-08-15 14:48:04,064 p=3466 u=root |  skipping: no hosts matched
+2018-08-15 14:48:04,065 p=3466 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 14:48:49,701 p=3484 u=root |  ERROR! the playbook: eu-west-2 could not be found
+2018-08-15 14:49:03,917 p=3490 u=root |  ERROR! the playbook: eu-west-2 could not be found
+2018-08-15 14:49:15,606 p=3492 u=root |  ERROR! You must specify a playbook file to run
+2018-08-15 14:50:20,474 p=3498 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-15 14:50:20,717 p=3498 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: tag_Type_MySQL
+
+2018-08-15 14:50:20,719 p=3498 u=root |  PLAY [tag_Type_MySQL] ****************************************************************************************
+2018-08-15 14:50:20,720 p=3498 u=root |  skipping: no hosts matched
+2018-08-15 14:50:20,721 p=3498 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 14:53:07,376 p=3515 u=root |  PLAY [tag_Type_Apache] ***************************************************************************************
+2018-08-15 14:53:07,394 p=3515 u=root |  TASK [Gathering Facts] ***************************************************************************************
+2018-08-15 14:53:21,933 p=3515 u=root |  ok: [35.177.124.187]
+2018-08-15 14:53:21,965 p=3515 u=root |  TASK [update system] *****************************************************************************************
+2018-08-15 14:54:48,940 p=3515 u=root |  changed: [35.177.124.187]
+2018-08-15 14:54:48,972 p=3515 u=root |  TASK [apache2 : install apache2] *****************************************************************************
+2018-08-15 14:55:03,408 p=3515 u=root |  changed: [35.177.124.187]
+2018-08-15 14:55:03,444 p=3515 u=root |  TASK [apache2 : enabled mod_rewrite] *************************************************************************
+2018-08-15 14:55:10,702 p=3515 u=root |  changed: [35.177.124.187]
+2018-08-15 14:55:10,704 p=3515 u=root |  RUNNING HANDLER [apache2 : Restart Apache2] ******************************************************************
+2018-08-15 14:55:21,142 p=3515 u=root |  changed: [35.177.124.187]
+2018-08-15 14:55:21,148 p=3515 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 14:55:21,149 p=3515 u=root |  35.177.124.187             : ok=5    changed=4    unreachable=0    failed=0   
+2018-08-15 14:55:33,616 p=3586 u=root |  ERROR! You must specify a playbook file to run
+2018-08-15 14:55:48,504 p=3590 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-15 14:55:48,648 p=3590 u=root |  playbook: db.yml
+2018-08-15 14:55:48,651 p=3590 u=root |    play #1 (tag_Type_MySQL): tag_Type_MySQL	TAGS: []
+    pattern: [u'tag_Type_MySQL']
+    hosts (1):
+      18.130.212.4
+2018-08-15 14:56:39,876 p=3605 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-15 14:56:40,118 p=3605 u=root |  PLAY [tag_Type_MySQL] ****************************************************************************************
+2018-08-15 14:56:40,138 p=3605 u=root |  TASK [Gathering Facts] ***************************************************************************************
+2018-08-15 14:56:53,822 p=3605 u=root |  ok: [18.130.212.4]
+2018-08-15 14:56:53,858 p=3605 u=root |  TASK [update system] *****************************************************************************************
+2018-08-15 14:57:22,492 p=3605 u=root |  changed: [18.130.212.4]
+2018-08-15 14:57:22,529 p=3605 u=root |  TASK [install pip] *******************************************************************************************
+2018-08-15 14:57:32,020 p=3605 u=root |  changed: [18.130.212.4]
+2018-08-15 14:57:32,059 p=3605 u=root |  TASK [python-db-modules : Update repositories cache and install "libmysqlclient-dev" package] ****************
+2018-08-15 14:57:43,076 p=3605 u=root |  changed: [18.130.212.4]
+2018-08-15 14:57:43,112 p=3605 u=root |  TASK [python-db-modules : copy requirment to remote server] **************************************************
+2018-08-15 14:57:51,678 p=3605 u=root |  changed: [18.130.212.4]
+2018-08-15 14:57:51,714 p=3605 u=root |  TASK [python-db-modules : python-modules] ********************************************************************
+2018-08-15 14:57:59,056 p=3605 u=root |  fatal: [18.130.212.4]: FAILED! => {"changed": false, "msg": "Unable to find any of pip3 to use.  pip needs to be installed."}
+2018-08-15 14:57:59,058 p=3605 u=root |  	to retry, use: --limit @/home/ansible_scripts/ansible-aws-inventory/db.retry
+
+2018-08-15 14:57:59,059 p=3605 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 14:57:59,061 p=3605 u=root |  18.130.212.4               : ok=5    changed=4    unreachable=0    failed=1   
+2018-08-15 14:59:00,030 p=3684 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-15 14:59:00,281 p=3684 u=root |  PLAY [tag_Type_MySQL] ****************************************************************************************
+2018-08-15 14:59:00,300 p=3684 u=root |  TASK [Gathering Facts] ***************************************************************************************
+2018-08-15 14:59:09,873 p=3684 u=root |  ok: [18.130.212.4]
+2018-08-15 14:59:09,945 p=3684 u=root |  TASK [update system] *****************************************************************************************
+2018-08-15 14:59:18,693 p=3684 u=root |  changed: [18.130.212.4]
+2018-08-15 14:59:18,731 p=3684 u=root |  TASK [install pip] *******************************************************************************************
+2018-08-15 14:59:25,987 p=3684 u=root |  changed: [18.130.212.4]
+2018-08-15 14:59:26,058 p=3684 u=root |  TASK [python-db-modules : Update repositories cache and install "libmysqlclient-dev" package] ****************
+2018-08-15 14:59:33,398 p=3684 u=root |  changed: [18.130.212.4]
+2018-08-15 14:59:33,440 p=3684 u=root |  TASK [python-db-modules : copy requirment to remote server] **************************************************
+2018-08-15 14:59:39,695 p=3684 u=root |  changed: [18.130.212.4]
+2018-08-15 14:59:39,731 p=3684 u=root |  TASK [python-db-modules : python-modules] ********************************************************************
+2018-08-15 14:59:46,629 p=3684 u=root |  fatal: [18.130.212.4]: FAILED! => {"changed": false, "msg": "Unable to find any of pip3 to use.  pip needs to be installed."}
+2018-08-15 14:59:46,633 p=3684 u=root |  	to retry, use: --limit @/home/ansible_scripts/ansible-aws-inventory/db.retry
+
+2018-08-15 14:59:46,635 p=3684 u=root |  PLAY RECAP ***************************************************************************************************
+2018-08-15 14:59:46,636 p=3684 u=root |  18.130.212.4               : ok=5    changed=4    unreachable=0    failed=1   
+2018-08-15 15:03:51,671 p=3788 u=root |  playbook: web.yml
+2018-08-15 15:03:51,674 p=3788 u=root |    play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    pattern: [u'tag_Type_Apache']
+    hosts (1):
+      35.177.124.187
+2018-08-15 15:04:42,168 p=3801 u=root |  playbook: web.yml
+2018-08-15 15:04:42,173 p=3801 u=root |    play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    pattern: [u'tag_Type_Apache']
+    hosts (2):
+      18.212.29.247
+      35.177.124.187
+2018-08-15 15:05:04,786 p=3814 u=root |  playbook: web.yml
+2018-08-15 15:05:04,791 p=3814 u=root |    play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    pattern: [u'tag_Type_Apache']
+    hosts (4):
+      13.232.148.160
+      18.212.29.247
+      18.231.171.168
+      35.177.124.187
+2018-08-15 15:05:24,601 p=3823 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: east
+
+2018-08-15 15:05:24,602 p=3823 u=root |  ERROR! Specified hosts and/or --limit does not match any hosts
+2018-08-15 15:05:31,659 p=3829 u=root |   [WARNING]: Could not match supplied host pattern, ignoring: *east
+
+2018-08-15 15:05:31,661 p=3829 u=root |  ERROR! Specified hosts and/or --limit does not match any hosts
+2018-08-15 15:05:55,674 p=3887 u=root |  playbook: web.yml
+2018-08-15 15:05:55,680 p=3887 u=root |    play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    pattern: [u'tag_Type_Apache']
+    hosts (2):
+      18.212.29.247
+      18.231.171.168
+2018-08-15 15:06:06,319 p=3906 u=root |  [DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and make sure become_method is 
+'sudo' (default). This feature will be removed in version 2.6. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2018-08-15 15:06:06,398 p=3906 u=root |  playbook: site.yml
+2018-08-15 15:06:06,401 p=3906 u=root |    play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    pattern: [u'tag_Type_Apache']
+    hosts (2):
+      18.212.29.247
+      18.231.171.168
+2018-08-15 15:06:06,404 p=3906 u=root |    play #2 (tag_Type_MySQL): tag_Type_MySQL	TAGS: []
+    pattern: [u'tag_Type_MySQL']
+    hosts (2):
+      18.208.167.34
+      18.228.15.99
+2018-08-15 15:58:57,196 p=4560 u=root |   [WARNING]: module dump not found in:
+/root/.ansible/plugins/modules:/usr/share/ansible/plugins/modules:/usr/lib/python2.7/dist-
+packages/ansible/modules
+
+2018-08-15 16:00:12,757 p=4579 u=root |   [WARNING]: module help not found in:
+/root/.ansible/plugins/modules:/usr/share/ansible/plugins/modules:/usr/lib/python2.7/dist-
+packages/ansible/modules
+
+2018-08-15 16:01:07,930 p=4600 u=root |  ERROR! Incorrect options passed
+2018-08-15 23:09:51,539 p=6122 u=root |  ERROR! No action selected, at least one of --host, --graph or --list needs to be specified.

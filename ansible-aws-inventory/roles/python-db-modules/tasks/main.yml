@@ -1,0 +1,20 @@
+---
+# tasks file for python-db-modules
+- name: Update repositories cache and install "libmysqlclient-dev" package
+  apt:
+    name: libmysqlclient-dev
+    update_cache: yes
+
+- name: copy requirment to remote server
+  template:
+    src: requirements.j2
+    dest: ~/.requirements.txt
+  tags: check
+
+- name: python-modules
+  pip: 
+    requirements: ~/.requirements.txt
+
+...
+  
+# tasks file for testrole
