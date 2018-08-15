@@ -1,0 +1,70 @@
+1. Launch EC2 instances on AWS.
+2. Add tags to EC2 instances 
+3. On your linux-box configure credential using AWS_CLI.
+4. To get dynamic inventory list (hosts list) provided to ansible, run command. 
+	python ec2.py --list
+
+Sample Example:
+   2 Ubuntu_16_ami EC2 instance each launched in four AWS regions(mum, london, n-virginia, sao-paulo)
+
+   Tag used for EC2 instances:
+   	  1. Name = DB_Server or Web_Server
+   	  2. Type = MySQL or Apache
+
+   	  	 Can Find these group in inventory_output.
+   	     	tag_Name_Web_Server (tag + <Name_of_tag> + <TAG_value>)
+
+   	  3. ec2.py create dynamic inventory list based on ec2.ini. Can group inventory based on region, image type, tag, keys, etc. 
+  
+   	  4. Output of "python ec2.py --list command" is in inventory_output.
+
+   	  5. based on ec2.py created group_vars: 
+   	  		tag_Type_Apache.yml, tag_Type_MySQL.yml --> based on Type Tag
+   	  		For Regions :
+				us-east-1.yml, eu-west-2.yml, ap-south-1.yml, sa-east-1.yml
+			all.yml --> common for all.
+
+ Add-hoc commands:
+    For all EC2 instances:
+ 		ansible all -i ec2.py -m ping
+ 	For EC2 instances in mumbai region: 
+ 		ansible ap-south-1 -i ec2.py -m ping
+ 	For EC2 instances having tag type and value MYSQL:
+ 		ansible tag_Type_MySQL -i ec2.py -m ping
+
+ Playbook:
+ 	To confiure my DB-server in london-region
+ 		ansible-playbook -i ec2.py -l eu-west-2 db.yml
+
+ 	To confiure my web-server in london,n-virginia
+ 	    ansible-playbook -i ec2.py -l eu-west-2,us-east-1 web.yml
+
+ 	To filter list of host will be configured
+ 		ansible-playbook -i ec2.py -l eu-west-2 --list-hosts web.yml
+ 		output:
+ 			playbook: web.yml
+
+  			play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    		pattern: [u'tag_Type_Apache']
+    		hosts (1):
+      			35.177.124.187
+
+
+    	ansible-playbook -i ec2.py -l *east* --list-hosts web.yml
+    	output:
+    		playbook: web.yml
+
+  				play #1 (tag_Type_Apache): tag_Type_Apache	TAGS: []
+    			pattern: [u'tag_Type_Apache']
+    				hosts (2):
+      					18.212.29.247
+      					18.231.171.168
+
+
+
+
+
+
+
+
+
